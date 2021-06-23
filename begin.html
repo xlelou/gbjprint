@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    要打印的起始序号：<input type="text" name="" id="start">
+    要打印的终止序号：<input type="text" name="" id="end">
+
+    <button onclick='showHTML()'>打印预览 </button>
+    <script>
+        function showHTML(){
+            var s = document.getElementById('start').value
+            var e = document.getElementById('end').value
+            if(!s || isNaN(s)){
+                alert('请输入正确的起始序号')
+                return
+            }
+            if(!e || isNaN(e)){
+                alert('请输入正确的终止序号')
+                return
+            }
+            window.location.href = './print.html?start='+s+"&end="+e
+        }
+
+
+    </script>
+</body>
+</html>

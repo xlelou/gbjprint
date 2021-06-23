@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+    <style>
+        @media print {
+            @page {
+                size: A5 landscape;
+                margin: 0;
+            }
+
+            body {
+                background-color: white;
+            }
+
+            img {
+                visibility: hidden;
+            }
+        }
+
+        #print-button {
+            display: none;
+        }
+
+        @media print {
+
+            .no-print,
+            .no-print * {
+                display: none !important;
+            }
+
+            footer {
+                page-break-after: always;
+            }
+
+            p {
+                page-break-inside: always;
+            }
+
+            table {
+                page-break-before: always
+            }
+
+            div {
+                page-break-after: always;
+            }
+
+            thead {
+                display: table-header-group
+            }
+
+            tfoot {
+                display: table-footer-group
+            }
+
+            .page-break {
+                display: block;
+                page-break-before: always;
+            }
+
+            div.divFooter {
+                position: fixed;
+                bottom: 0;
+            }
+
+            hr {
+                page-break-after: avoid;
+            }
+        }
+
+
+        div.d0 {
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        div.CSSTableGenerator {
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        #page-number:after {
+            counter-increment: page_number;
+            content: "Page "counter(page_number);
+        }
+
+        body {
+            counter-reset: page_number;
+            text-align: center;
+        }
+    </style>
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .tg td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg th {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg .tg-lboi {
+            border-color: inherit;
+            text-align: left;
+            vertical-align: middle
+        }
+
+        .tg .tg-9wq8 {
+            border-color: inherit;
+            text-align: center;
+            vertical-align: middle
+        }
+
+        tr {
+            height: 60px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <script>
+        function getQueryVariable(variable)
+            {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                        var pair = vars[i].split("=");
+                        if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+
+            function init(){
+            var s = parseInt(getQueryVariable('start'))
+            var e = parseInt(getQueryVariable('end'))
+            if(!s || isNaN(s)){
+                alert('请输入正确的起始序号')
+                window.location.href = './begin.html'
+                return
+            }
+            if(!e || isNaN(e)){
+                alert('请输入正确的终止序号')
+                window.location.href = './begin.html'
+                return
+            }
+            var html = ''
+            for(var i=s;i<=e;i++){
+                html+=`
+                            <table class="tg" style="margin: 30px auto 0;table-layout: fixed; width: 912px">
+                    <colgroup>
+                        <col style="width: 78px">
+                        <col style="width: 69px">
+                        <col style="width: 150px">
+                        <col style="width: 69px">
+                        <col style="width: 105px">
+                        <col style="width: 123px">
+                        <col style="width: 318px">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th colspan="7" style="height: 90px; font-size: 30px;font-weight: 800;border: 0;">
+                                当事人血样提取登记表
+                            </th>
+
+                        </tr>
+                        <tr style="height: auto;padding: 0;">
+                            <th colspan="7" style="height: auto;padding: 0;text-align: right; border: 0;">
+                                编号：&nbsp;<span >${i}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th class="tg-9wq8" colspan="2">被提取人姓名</th>
+                            <th class="tg-lboi"></th>
+                            <th class="tg-9wq8">性别</th>
+                            <th class="tg-9wq8"></th>
+                            <th class="tg-9wq8">身份证号码</th>
+                            <th class="tg-9wq8"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">案件发生时间</td>
+                            <td class="tg-lboi" colspan="3">
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分</td>
+                            <td class="tg-9wq8">案件发生地点</td>
+                            <td class="tg-9wq8"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">血样提取时间</td>
+                            <td class="tg-lboi" colspan="3">
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时
+                                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分</td>
+                            <td class="tg-9wq8">提取地点</td>
+                            <td class="tg-9wq8"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" rowspan="4">血 样<br>提 取<br>人 员<br>填 写</td>
+                            <td class="tg-9wq8" colspan="2">A样本盛装容器编号</td>
+                            <td class="tg-9wq8" colspan="2"><span>${i+'A'}</span></td>
+                            <td class="tg-9wq8">提取量</td>
+                            <td class="tg-9wq8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;ml</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">B样本盛装容器编号</td>
+                            <td class="tg-9wq8" colspan="2"><span>${i+'B'}</span></td>
+                            <td class="tg-9wq8">提取量</td>
+                            <td class="tg-9wq8">&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                ml</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">消毒液名称</td>
+                            <td class="tg-9wq8" colspan="2"></td>
+                            <td class="tg-9wq8">密封方式</td>
+                            <td class="tg-9wq8"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">提取人单位</td>
+                            <td class="tg-9wq8" colspan="2"></td>
+                            <td class="tg-9wq8">提取人签名</td>
+                            <td class="tg-9wq8"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">被提取人签名</td>
+                            <td class="tg-lboi" colspan="3"></td>
+                            <td class="tg-9wq8">见证人签名</td>
+                            <td class="tg-9wq8"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">交通警察签名</td>
+                            <td class="tg-lboi" colspan="3"></td>
+                            <td class="tg-9wq8">办案单位名称</td>
+                            <td class="tg-9wq8"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-9wq8" colspan="2">通知家属情况</td>
+                            <td class="tg-lboi" colspan="5"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                `
+            }
+            document.body.innerHTML = html
+        }
+
+        init()
+    </script>
+</body>
+
+</html>
